@@ -26,6 +26,7 @@ _libs
 *.tmp
 *.so
 *.so.*
+*.obj
 cscope.out
 config.guess
 config.sub
@@ -40,3 +41,6 @@ CPackConfig.cmake
 CPackSourceConfig.cmake
 cmake_install.cmake
 depcomp
+demo/*.exe
+demo/*.exe.pdf
+libhpdf.lib

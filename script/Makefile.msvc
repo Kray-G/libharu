@@ -11,11 +11,11 @@
 #    make install prefix=$HOME
 
 !IFNDEF PNG_PREFIX
-PNG_PREFIX   = ../../libpng
+PNG_PREFIX   = win32/msvc
 !ENDIF
 
 !IFNDEF ZLIB_PREFIX
-ZLIB_PREFIX   = ../../zlib
+ZLIB_PREFIX   = win32/msvc
 !ENDIF
 
 CC=cl
@@ -32,7 +32,7 @@ CFLAGS_DEMO=-MT -nologo -O2 -Iinclude -Iwin32\include -D__WIN32__
 CFLAGS_EXE=-Fe
 LDFLAGS= /LIBPATH:$(PNG_PREFIX)\lib /LIBPATH:$(ZLIB_PREFIX)\lib /LIBPATH:win32\msvc libpng.lib zlib_a.lib
 LDFLAGS_DEMO1=
-LDFLAGS_DEMO2=/link /LIBPATH:. /LIBPATH:win32\msvc libhpdf.lib libpng.lib zlib.lib
+LDFLAGS_DEMO2=/link /LIBPATH:. /LIBPATH:win32\msvc /LIBPATH:win32\msvc\lib libhpdf.lib libpng.lib zlib_a.lib
 DEFNAME=win32/msvc/libhpdf.def
 RESNAME=win32/msvc/libhpdf.res
 
@@ -91,6 +91,7 @@ OBJS = \
 	src\hpdf_namedict.obj \
 	src\hpdf_3dmeasure.obj \
 	src\hpdf_exdata.obj \
+	src\hpdf_encoder_utf.obj \
 	src\hpdf_u3d.obj
 
 PROGRAMS = \
